@@ -9,6 +9,8 @@ public interface NameService {
     
     List<Name> findAll();
     
+    Name findById(int id);
+    
     //idに指定した名前が存在しない場合に例外をthrowする
     Name findBy(int id) throws Exception;
     

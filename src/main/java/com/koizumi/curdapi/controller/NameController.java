@@ -2,10 +2,13 @@ package com.koizumi.curdapi.controller;
 
 import com.koizumi.curdapi.entity.Name;
 import com.koizumi.curdapi.service.NameService;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -19,9 +22,17 @@ public class NameController {
     }
     
     @GetMapping("/names")
-    public List<Name> getNames() {
+    public ResponseEntity<List<NameResponse>> getNames() {
         List<Name> names = nameService.findAll();
-        return names;
+        List<NameResponse> nameResponses = names.stream().map(NameResponse::new).collect(Collectors.toList());
+        return ResponseEntity.ok(nameResponses);
+    }
+    
+    @GetMapping("/names/{id}")
+    public ResponseEntity<NameResponse> getNameById(@PathVariable int id) {
+        Name name = nameService.findById(id);
+        NameResponse nameResponse = new NameResponse(name);
+        return ResponseEntity.ok(nameResponse);
     }
     
     //名前の登録

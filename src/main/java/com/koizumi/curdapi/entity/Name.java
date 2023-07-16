@@ -1,6 +1,5 @@
 package com.koizumi.curdapi.entity;
 
-import com.koizumi.curdapi.mapper.NameMapper;
 import lombok.Getter;
 import lombok.Setter;
 

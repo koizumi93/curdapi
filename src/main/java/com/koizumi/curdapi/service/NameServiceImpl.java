@@ -23,6 +23,11 @@ public class NameServiceImpl implements NameService {
     }
     
     @Override
+    public Name findById(int id) {
+        return nameMapper.findById(id);
+    }
+    
+    @Override
     public Name findBy(int id) throws Exception {
         return null;
     }

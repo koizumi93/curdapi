@@ -1,7 +1,12 @@
 package com.koizumi.curdapi.mapper;
 
 import com.koizumi.curdapi.entity.Name;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -14,7 +19,7 @@ public interface NameMapper {
     
     //id指定で名前の表示
     @Select("SELECT * FROM names WHERE id = #{id}")
-    List<Name> findById(int id);
+    Name findById(int id);
     
     //名前の登録
     @Insert("INSERT INTO names(name) VALUES(#{names})")
