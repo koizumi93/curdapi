@@ -1,9 +1,10 @@
-/*package com.koizumi.curdapi.controller;
+package com.koizumi.curdapi.controller;
 
 import com.koizumi.curdapi.entity.Name;
 import lombok.Getter;
 import lombok.Setter;
 
+//使ってない
 @Getter
 @Setter
 public class NameResponse {
@@ -14,4 +15,4 @@ public class NameResponse {
         this.id = name.getId();
         this.name = name.getName();
     }
-}*/
+}
